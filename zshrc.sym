@@ -1,0 +1,19 @@
+DOTDIR=${HOME}/dotfiles
+
+# Load from .zsh
+source ${DOTDIR}/zsh/path.sh
+source ${DOTDIR}/zsh/options.sh
+source ${DOTDIR}/zsh/aliases.sh
+source ${DOTDIR}/zsh/functions.sh
+source ${DOTDIR}/zsh/history.sh
+source ${DOTDIR}/zsh/keybinding.sh
+source ${DOTDIR}/zsh/nvm.sh
+
+# Load zsh plugins via antibody
+source ${DOTDIR}/zsh/antibody.sh
+
+source ${DOTDIR}/zsh/prompt.sh
+source ${DOTDIR}/zsh/weather.sh
+
+# Load own plugins
+source ${DOTDIR}/zsh/plugins/last-working-dir.sh

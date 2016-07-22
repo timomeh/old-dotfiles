@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "==> Mac Defaults"
+sh ${DIR}/setup/macos.sh
+echo ""
+
+echo "==> Homebrew"
+sh ${DIR}/setup/brew.sh
+echo ""
+
+${DIR}/symlink
