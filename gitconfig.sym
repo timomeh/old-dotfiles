@@ -8,3 +8,9 @@
 
 [core]
 	excludesfile = ~/.gitignore
+
+[pull]
+	rebase = true
+
+[push]
+	default = simple
