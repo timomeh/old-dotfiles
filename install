@@ -10,4 +10,8 @@ echo "==> Homebrew"
 sh ${DIR}/setup/brew.sh
 echo ""
 
+echo "==> nvm"
+sh ${DIR}/setup/nvm.sh
+echo ""
+
 ${DIR}/symlink
