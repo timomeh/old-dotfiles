@@ -1,8 +1,20 @@
 local weather_file=${ZSH_CACHE_DIR}/weather
 
+# Geocode current location
+function geo_place() {
+	local geocode="$(whereami | tr '\n' ' ')";
+	local arr=("${(@s/ /)geocode}")
+	local lat=${arr[2]};
+	local long=${arr[4]};
+	local json="$(curl -s "http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}&zoom=18&addressdetails=1&accept-language=en_US")"
+	local city="$(echo $json | jq .address.village | sed -e 's/^"//'  -e 's/"$//' | iconv -c -f utf-8 -t us-ascii//TRANSLIT | tr -d "\"\`^'")"
+	local country="$(echo $json | jq .address.country | sed -e 's/^"//'  -e 's/"$//' | iconv -c -f utf-8 -t us-ascii//TRANSLIT | tr -d "\"\`^'")"
+	echo "$city,$country"
+}
+
 # Fetch weather in background and print if finished
 function async_weather() {
-	local city=$1
+	local city=$(geo_place)
 	local weather=$(curl -s wttr.in/$city | awk 'FNR>=0 && FNR<=7')
 	echo "$weather" > $weather_file
 	tput sc
@@ -29,8 +41,7 @@ function new_weather() {
 		fi
 	else
 		# Async call weather
-		local city="$(defaults read /Library/Preferences/.GlobalPreferences.plist com.apple.preferences.timezone.selected_city | grep ' Name =' | awk -F'= ' '{print $2}' | awk -F';' '{print $1}')"
-		echo "Fetching weather for ${city}..."
+		echo "Fetching weather..."
 		echo "\n\n\n\n\n\n"
 		(async_weather $city &)
 	fi
@@ -38,12 +49,12 @@ function new_weather() {
 
 # Check if cached file exists,
 # then compare last-modified with current date
-# and get new weather, if file is older than 30 minutes.
+# and get new weather, if file is older than 60 minutes.
 # If weather is in cache, read it from cache!
 if [[ -f $weather_file ]] && [[ -s $weather_file ]]; then
 	local modified=$(stat -f '%Sm' -t '%s' $weather_file)
 	local curr=$(date +'%s')
-	let "plus = $modified + 1200"
+	let "plus = $modified + 3600"
 	if [[ "$plus" -gt "$curr" ]]; then
 		echo "Forecast for $(date -r $modified)"
 		cat $weather_file
