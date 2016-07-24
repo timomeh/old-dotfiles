@@ -32,6 +32,10 @@ echo "      - No Sound Effect on Startup"
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
+echo "      - Faster Window Resize Time"
+# Faster window resize time
+defaults write -g NSWindowResizeTime -float 0.07
+
 
 echo ""
 ### Finder #############################################################
@@ -96,6 +100,12 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 echo "      - Disable auto correct"
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+echo "      - Disable smart quotes and dashes"
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 
 echo ""
