@@ -43,7 +43,7 @@ function new_weather() {
 		# Async call weather
 		echo "Fetching weather..."
 		echo "\n\n\n\n\n\n"
-		(async_weather $city &)
+		(async_weather &)
 	fi
 }
 
