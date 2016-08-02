@@ -6,18 +6,18 @@ echo "==> Symlinking dotfiles"
 suffix=".sym"
 prefix="${DIR}/"
 for f in ${DIR}/*.sym; do
-	echo ""
-	symname="${f%$suffix}"
-	symname="${symname#$prefix}"
-	sympath=${HOME}/.${symname}
-	if [[ -f $sympath ]]; then
-		echo "    # Removing old symlink"
-		echo "    $ rm $sympath"
-		rm $sympath
-	fi
-	symname="${f%$suffix}"
-	symname="${symname#$prefix}"
-	echo "    # Creating symlink"
-	echo "    $ ln -s ${f} ${sympath}"
-	ln -s ${f} ${sympath}
+  echo ""
+  symname="${f%$suffix}"
+  symname="${symname#$prefix}"
+  sympath=${HOME}/.${symname}
+  if [[ -f $sympath ]]; then
+    echo "    # Removing old symlink"
+    echo "    $ rm $sympath"
+    rm $sympath
+  fi
+  symname="${f%$suffix}"
+  symname="${symname#$prefix}"
+  echo "    # Creating symlink"
+  echo "    $ ln -s ${f} ${sympath}"
+  ln -s ${f} ${sympath}
 done
