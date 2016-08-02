@@ -1,27 +1,12 @@
 local weather_file=${ZSH_CACHE_DIR}/weather
 
-# Geocode current location
-function geo_place() {
-	local geocode="$(whereami | tr '\n' ' ')";
-	local arr=("${(@s/ /)geocode}")
-	local lat=${arr[2]};
-	local long=${arr[4]};
-	local json="$(curl -s "http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}&zoom=18&addressdetails=1&accept-language=en_US")"
-	local city="$(echo $json | jq .address.village | sed -e 's/^"//'  -e 's/"$//' | iconv -c -f utf-8 -t us-ascii//TRANSLIT | tr -d "\"\`^'")"
-	local country="$(echo $json | jq .address.country | sed -e 's/^"//'  -e 's/"$//' | iconv -c -f utf-8 -t us-ascii//TRANSLIT | tr -d "\"\`^'")"
-	echo "$city,$country"
-}
-
 # Fetch weather in background and print if finished
-function async_weather() {
-	local city=$(geo_place)
-	local weather=$(curl -s wttr.in/$city | awk 'FNR>=0 && FNR<=7')
+function async_weather_from_geo() {
+	local city=$(LocateMe -f "{LAT},{LON}")
+	local weather=$(curl -s wttr.in/$city | awk 'FNR>=2 && FNR<=7')
 	echo "$weather" > $weather_file
 	tput sc
 	tput cup 1 0
-	tput el
-	echo "New Forcast for $(date)"
-	tput cup 2 0
 	echo "$weather"
 	tput rc
 }
@@ -34,16 +19,16 @@ function new_weather() {
 	if [[ $? -ne 0 ]]; then
 		# Fallback to cached weather with no internet connection
 		if [[ -f $weather_file ]] && [[ -s $weather_file ]]; then
-			echo "Forecast for $(date -r $modified)"
+			# echo "Forecast for $(date -r $modified)"
 			cat $weather_file
 		else
 			echo "Can't show any weather right now. Sorry."
 		fi
 	else
 		# Async call weather
-		echo "Fetching weather..."
-		echo "\n\n\n\n\n\n"
-		(async_weather &)
+		echo "\n\n\n       Fetching weather..."
+		echo "\n"
+		(async_weather_from_geo &)
 	fi
 }
 
