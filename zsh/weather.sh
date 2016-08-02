@@ -14,15 +14,21 @@ function async_weather_from_geo() {
 # Initiate new weather fetching
 # Also test if internet is available
 function new_weather() {
-	# Test connection to 8.8.8.8
-	nc -z 8.8.8.8 53  >/dev/null 2>&1
+	# Test connection to 8.8.8.8 with 2 second timeout
+	nc -z 8.8.8.8 53 -G 2  >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
 		# Fallback to cached weather with no internet connection
 		if [[ -f $weather_file ]] && [[ -s $weather_file ]]; then
 			# echo "Forecast for $(date -r $modified)"
+			tput sc
+			tput cup 1 0
 			cat $weather_file
+			tput rc
 		else
+			tput sc
+			tput cup 1 0
 			echo "Can't show any weather right now. Sorry."
+			tput rc
 		fi
 	else
 		# Async call weather
@@ -41,7 +47,7 @@ if [[ -f $weather_file ]] && [[ -s $weather_file ]]; then
 	local curr=$(date +'%s')
 	let "plus = $modified + 3600"
 	if [[ "$plus" -gt "$curr" ]]; then
-		echo "Forecast for $(date -r $modified)"
+		# echo "Forecast for $(date -r $modified)"
 		cat $weather_file
 	else
 		new_weather
