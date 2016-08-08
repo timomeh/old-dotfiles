@@ -1,0 +1,110 @@
+" Vundle Plugins
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'alvan/vim-closetag' " Needs more testing
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jdkanani/vim-material-theme'
+Plugin 'mustache/vim-mustache-handlebars'
+
+call vundle#end()
+filetype plugin indent on
+
+" Theme & General Vim configurations
+syntax on
+set background=dark
+colorscheme material-theme
+set guifont=Hack:h14
+set linespace=3
+set encoding=utf-8
+set laststatus=2
+set showmatch " Show matching search results
+set noswapfile " Disable swapfile
+set nobackup " Don't make any backups
+set hlsearch " Better search
+set incsearch " Better search
+set ignorecase " Better search
+set smartcase " Better search
+set noerrorbells visualbell t_vb= " Disable Bell
+set wildignore+=*/node_modules/* " Ignore pattern for wildmenu (file browser)
+set wildmenu
+set wildmode=list:longest,full
+set number " Show line numbers
+set ruler " Show ruler
+set list " Show invisibles
+set guioptions-=r " disable right scrollbar
+set guioptions-=L " disable left scrollbar
+set guicursor=a:blinkon800-blinkoff800 " Cursor speed
+set colorcolumn=80
+set tabstop=2 " Tab settings
+set expandtab " Tab will produce spaces by default (editorconfig can override)
+set smarttab " When pressing enter, indent correctly
+
+let mapleader="," " Custom leader key
+
+" GitGutter
+set updatetime=250
+
+" custom color for 80char column
+highlight ColorColumn ctermbg=235 guibg=#2b3940
+
+" Invisibles
+set listchars=tab:»\ ,trail:·,eol:¬
+highlight NonText guifg=#32424a
+highlight SpecialKey guifg=#32424a
+
+" Airline / Powerline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'powerlineish'
+
+" Closetag files
+let g:closetag_filenames = "*.html,*.php,*.hbs"
+
+" Indent Guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 2
+let g:indent_guides_enable_on_vim_startup=1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#2e3c43 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#374851 ctermbg=4
+
+" NERDTree - Currently disabled
+" let NERDTreeShowHidden = 1
+
+" Mustache Abbrev
+let g:mustache_abbreviations = 1
+
+" ==== KEY BINDINGS ====
+
+" Easymotion - Press space before b/w/...
+map <SPACE> <Plug>(easymotion-prefix)
+" Easymotion - Leaderkey + l : search line forward
+map <Leader>l <Plug>(easymotion-lineforward)
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" map <C-n> :NERDTreeToggle<CR>
+" Exit Insert Mode with jk
+imap jk <Esc>
+nnoremap <BS> <ESC>:noh<RETURN><ESC>
+
+" Left arrow: prev buffer, right arrow: next buffer
+nnoremap <LEFT> <ESC>:bp<RETURN>
+nnoremap <RIGHT> <ESC>:bn<RETURN>
