@@ -15,7 +15,7 @@ function async_weather_from_geo() {
 # Also test if internet is available
 function new_weather() {
   # Test connection to 8.8.8.8 with 2 second timeout
-  nc -z 8.8.8.8 53 -G 2  >/dev/null 2>&1
+  ping -c 1 -t 1 8.8.8.8 >/dev/null 2>&1
   if [[ $? -ne 0 ]]; then
     # Fallback to cached weather with no internet connection
     if [[ -f $weather_file ]] && [[ -s $weather_file ]]; then
