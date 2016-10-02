@@ -49,6 +49,7 @@ set guioptions-=L " disable left scrollbar
 set guicursor=a:blinkon800-blinkoff800 " Cursor speed
 set colorcolumn=80
 set tabstop=2 " Tab settings
+set shiftwidth=2
 set expandtab " Tab will produce spaces by default (editorconfig can override)
 set smarttab " When pressing enter, indent correctly
 
