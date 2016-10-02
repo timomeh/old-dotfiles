@@ -85,5 +85,5 @@ PROMPT="
 %{$white%}in \
 $bold$yellow$current_dir$reset\
 $git_info \
-%{$white%}[$(date +'%H:%M:%S')]
+%{$white%}[%D{%T}]
 $status_indicator"
