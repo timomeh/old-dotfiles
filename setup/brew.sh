@@ -17,4 +17,8 @@ then
 	echo "  => Install zsh"
 	brew install zsh
 	brew install zsh-completions
+
+	echo "  => Install fzf"
+	brew install fzf
+	/usr/local/opt/fzf/install
 fi

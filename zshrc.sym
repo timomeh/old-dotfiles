@@ -2,6 +2,7 @@ DOTDIR=${HOME}/dotfiles
 
 # Load from .zsh
 source ${DOTDIR}/zsh/path.sh
+source ${DOTDIR}/zsh/exports.sh
 source ${DOTDIR}/zsh/options.sh
 source ${DOTDIR}/zsh/aliases.sh
 source ${DOTDIR}/zsh/functions.sh
@@ -16,4 +17,4 @@ source ${DOTDIR}/zsh/prompt.sh
 source ${DOTDIR}/zsh/weather.sh
 
 # Load own plugins
-source ${DOTDIR}/zsh/plugins/last-working-dir.sh
+# source ${DOTDIR}/zsh/plugins/last-working-dir.sh

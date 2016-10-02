@@ -1,0 +1,2 @@
+export ENHANCD_DOT_ARG=.
+export ENHANCD_HYPHEN_ARG=--
