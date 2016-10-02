@@ -7,7 +7,8 @@
 	lg = !"git lg1"
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/timomaemecke/.gitignore
+	editor = subl -n -w
 
 [pull]
 	rebase = true
