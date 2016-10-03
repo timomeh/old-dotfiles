@@ -1,3 +1,5 @@
+## currently disabled because I wanna try out plugins like enhancd
+
 local cwd_file=${ZSH_CACHE_DIR}/cwd
 
 # Override native cd

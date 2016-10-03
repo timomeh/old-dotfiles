@@ -1,0 +1,7 @@
+djui/alias-tips
+tomsquest/nvm-auto-use.zsh
+b4b4r07/enhancd
+MikeDacre/cdbk
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
