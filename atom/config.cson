@@ -1,0 +1,24 @@
+"*":
+  core:
+    disabledPackages: [
+      "symbols-view"
+    ]
+    telemetryConsent: "no"
+    useCustomTitleBar: true
+  editor:
+    fontFamily: "Fira Mono"
+    fontSize: 15
+    lineHeight: 1.8
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "38b05d84-d4a9-dfad-9bb8-6f87a9a89176"
+  "file-icons":
+    coloured: false
+    onChanges: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

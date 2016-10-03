@@ -3,20 +3,20 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "==> Symlinking dotfiles"
-suffix=".sym"
-prefix="${DIR}/"
+symsuffix=".sym"
+symprefix="${DIR}/"
 for f in ${DIR}/*.sym; do
   echo ""
-  symname="${f%$suffix}"
-  symname="${symname#$prefix}"
+  symname="${f%$symsuffix}"
+  symname="${symname#$symprefix}"
   sympath=${HOME}/.${symname}
   if [[ -f $sympath ]]; then
     echo "    # Removing old symlink"
     echo "    $ rm $sympath"
     rm $sympath
   fi
-  symname="${f%$suffix}"
-  symname="${symname#$prefix}"
+  symname="${f%$symsuffix}"
+  symname="${symname#$symprefix}"
   echo "    # Creating symlink"
   echo "    $ ln -s ${f} ${sympath}"
   ln -s ${f} ${sympath}
@@ -24,22 +24,18 @@ done
 
 echo ""
 echo "==> Symlinking atom files"
-echo ""
-if [[ -f ${HOME}/.atom/styles.less ]]; then
-  echo "    # Removing old styles.less"
-  echo "    $ rm ${HOME}/.atom/styles.less"
-  rm ${HOME}/.atom/styles.less
-fi
-echo "    # Creating symlink"
-echo "    $ ln -s ${DIR}/atom/styles.less ${HOME}/.atom/styles.less"
-ln -s ${DIR}/atom/styles.less ${HOME}/.atom/styles.less
-echo ""
+atomprefix="${DIR}/atom/"
 
-if [[ -f ${HOME}/.atom/init.coffee ]]; then
-  echo "    # Removing old init.coffee"
-  echo "    $ rm ${HOME}/.atom/init.coffee"
-  rm ${HOME}/.atom/init.coffee
-fi
-echo "    # Creating symlink"
-echo "    $ ln -s ${DIR}/atom/init.coffee ${HOME}/.atom/init.coffee"
-ln -s ${DIR}/atom/init.coffee ${HOME}/.atom/init.coffee
+for f in ${DIR}/atom/*; do
+  echo ""
+  symname="${f#$atomprefix}"
+  sympath=${HOME}/.atom/${symname}
+  if [[ -f $sympath ]]; then
+    echo "    # Removing old symlink"
+    echo "    $ rm $sympath"
+    rm $sympath
+  fi
+  echo "    # Creating symlink"
+  echo "    $ ln -s ${f} ${sympath}"
+  ln -s ${f} ${sympath}
+done
