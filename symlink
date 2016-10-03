@@ -21,3 +21,25 @@ for f in ${DIR}/*.sym; do
   echo "    $ ln -s ${f} ${sympath}"
   ln -s ${f} ${sympath}
 done
+
+echo ""
+echo "==> Symlinking atom files"
+echo ""
+if [[ -f ${HOME}/.atom/styles.less ]]; then
+  echo "    # Removing old styles.less"
+  echo "    $ rm ${HOME}/.atom/styles.less"
+  rm ${HOME}/.atom/styles.less
+fi
+echo "    # Creating symlink"
+echo "    $ ln -s ${DIR}/atom/styles.less ${HOME}/.atom/styles.less"
+ln -s ${DIR}/atom/styles.less ${HOME}/.atom/styles.less
+echo ""
+
+if [[ -f ${HOME}/.atom/init.coffee ]]; then
+  echo "    # Removing old init.coffee"
+  echo "    $ rm ${HOME}/.atom/init.coffee"
+  rm ${HOME}/.atom/init.coffee
+fi
+echo "    # Creating symlink"
+echo "    $ ln -s ${DIR}/atom/init.coffee ${HOME}/.atom/init.coffee"
+ln -s ${DIR}/atom/init.coffee ${HOME}/.atom/init.coffee

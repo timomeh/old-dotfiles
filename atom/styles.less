@@ -1,0 +1,107 @@
+atom-text-editor::shadow .line-number {
+  font-family: PT Mono;
+  font-weight: 600;
+}
+
+.tree-view {
+  font-size: 13px;
+}
+
+.list-tree {
+  .entry {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .entry.selected::before {
+    box-sizing: content-box;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: -2px;
+    border-left: 2px solid #528bff;
+  }
+
+  .entry.selected[class*="status"]::before {
+      border-color: currentColor;
+  }
+}
+
+.modal.overlay {
+  // Make modal text bigger
+  font-size: 13px;
+
+  // Make modal input bigger
+  .editor.mini {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  // Fancy command palette error message
+  .command-palette .error-message {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 20px 0;
+
+    &::after {
+      content: "(>_<)";
+      display: block;
+      font-size: 5em;
+      margin: 10px 0 30px;
+      font-family: Roboto Mono;
+      opacity: 0.3;
+    }
+
+    // Random emotes
+    &.face-1::after {
+      content: "(>_<)";
+    }
+
+    &.face-2::after {
+      content: "\\(^Д^)/";
+    }
+
+    &.face-3::after {
+      content: "(≥o≤)";
+    }
+
+    &.face-4::after {
+      content: "(^_^)b";
+    }
+
+    &.face-5::after {
+      content: "(·_·)";
+    }
+
+    &.face-6::after {
+      content: "(;-;)";
+    }
+
+    &.face-7::after {
+      content: "(='X'=)";
+    }
+
+    &.face-8::after {
+      content: "\\(o_o)/";
+    }
+
+    &.face-9::after {
+      content: "(·.·)";
+    }
+
+    &.face-10::after {
+      content: "(^-^*)";
+    }
+
+    &.face-11::after {
+      content: "(o^^)o";
+    }
+
+    &.face-12::after {
+      content: "(˚Δ˚)b";
+    }
+
+    &.face-13::after {
+      content: "(o^^)o";
+    }
+  }
+}
