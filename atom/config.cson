@@ -2,6 +2,7 @@
   core:
     disabledPackages: [
       "symbols-view"
+      "vim-mode-plus"
     ]
     telemetryConsent: "no"
     useCustomTitleBar: true
@@ -17,8 +18,23 @@
   "file-icons":
     coloured: false
     onChanges: true
+  "grammar-token-limit": {}
+  "linter-eslint":
+    globalNodePath: "/Users/timomaemecke/.nvm/versions/node/v6.9.1"
+    useGlobalEslint: true
+  "linter-js-standard":
+    checkStyleDevDependencies: true
+  minimap:
+    plugins:
+      "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
   "one-dark-ui":
     layoutMode: "Compact"
+  "spell-check":
+    locales: [
+      "en-US"
+      "de-DE"
+    ]
   "tree-view": {}
   welcome:
     showOnStartup: false
