@@ -1,4 +1,6 @@
 "*":
+  "advanced-open-file":
+    createDirectories: true
   core:
     disabledPackages: [
       "symbols-view"
@@ -18,6 +20,8 @@
   "file-icons":
     coloured: false
     onChanges: true
+  "flow-ide":
+    executablePath: "/Users/timomaemecke/bin/flow"
   "grammar-token-limit": {}
   "linter-eslint":
     globalNodePath: "/Users/timomaemecke/.nvm/versions/node/v6.9.1"
@@ -35,6 +39,7 @@
       "en-US"
       "de-DE"
     ]
-  "tree-view": {}
+  "tree-view":
+    {}
   welcome:
     showOnStartup: false
