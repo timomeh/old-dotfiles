@@ -18,7 +18,7 @@
 #   'ctrl-p': 'core:move-down'
 #
 # You can find more information about keymaps in these guides:
-# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings
+# * http://flight-manual.atomm.io/using-atom/sections/basic-customization/#_customizing_keybindings
 # * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
 #
 # If you're having trouble with your keybindings not working, try the
@@ -30,3 +30,21 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'atom-text-editor':
+  'cmd-shift-l': 'narrow:lines'
+  'cmd-k n left': 'pane:split-left-and-move-active-item'
+  'cmd-k n right': 'pane:split-right-and-move-active-item'
+  'cmd-k n up': 'pane:split-up-and-move-active-item'
+  'cmd-k n down': 'pane:split-down-and-move-active-item'
+  'cmd-k c left': 'pane:split-left-and-copy-active-item'
+  'cmd-k c right': 'pane:split-right-and-copy-active-item'
+  'cmd-k c up': 'pane:split-up-and-copy-active-item'
+  'cmd-k c down': 'pane:split-down-and-copy-active-item'
+  'cmd-k left': 'window:move-active-item-to-pane-on-left'
+  'cmd-k right': 'window:move-active-item-to-pane-on-right'
+  'cmd-k down': 'window:move-active-item-to-pane-below'
+  'cmd-k up': 'window:move-active-item-to-pane-above'
+  'shift-cmd-k': 'hey-pane:toggle-focus-of-active-pane'
+  'cmd-ctrl-,': 'pane:decrease-size'
+  'cmd-ctrl-.': 'pane:increase-size'
