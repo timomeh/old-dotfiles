@@ -7,6 +7,31 @@ atom-text-editor::shadow .line-number {
   font-size: 13px;
 }
 
+.tree-view-resizer {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 10px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.2)
+    );
+    z-index: 1;
+  }
+}
+
+.tree-view {
+  transition: opacity 150ms;
+  &:not(:hover) {
+    opacity: 0.2;
+  }
+}
+
 .list-tree {
   .entry {
     padding-top: 2px;
