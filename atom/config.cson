@@ -39,7 +39,6 @@
       "en-US"
       "de-DE"
     ]
-  "tree-view":
-    {}
+  "tree-view": {}
   welcome:
     showOnStartup: false
