@@ -1,12 +1,36 @@
 "*":
   "advanced-open-file":
     createDirectories: true
+  "atom-material-ui":
+    colors: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui: {}
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
-      "symbols-view"
       "vim-mode-plus"
     ]
     telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+    titleBar: "custom-inset"
     useCustomTitleBar: true
   editor:
     fontFamily: "Fira Mono"
@@ -22,7 +46,10 @@
     onChanges: true
   "flow-ide":
     executablePath: "/Users/timomaemecke/bin/flow"
-  "grammar-token-limit": {}
+  "grammar-token-limit":
+    maxTokensPerLine: 400
+  "hey-pane": {}
+  linter: {}
   "linter-eslint":
     globalNodePath: "/Users/timomaemecke/.nvm/versions/node/v6.9.1"
     useGlobalEslint: true
@@ -34,11 +61,27 @@
       "minimap-autohideDecorationsZIndex": 0
   "one-dark-ui":
     layoutMode: "Compact"
+  "prettier-atom":
+    jsxBracketSameLine: true
+    parser: "flow"
   "spell-check":
     locales: [
       "en-US"
       "de-DE"
     ]
+  swackets:
+    colors: [
+      "#9C27B0"
+      "#2196F3"
+      "#673AB7"
+      "#0288D1"
+      "#00838F"
+      "#00796B"
+      "#FFA000"
+      "#5D4037"
+      "#546E7A"
+    ]
   "tree-view": {}
+  "vertical-tabs": {}
   welcome:
     showOnStartup: false
