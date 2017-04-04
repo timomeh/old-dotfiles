@@ -16,8 +16,8 @@
 atom.commands.onDidDispatch (event) ->
   if event.type is "command-palette:toggle"
     workspaceElement = atom.views.getView(atom.workspace)
-    errorMessage = workspaceElement.querySelector(".command-palette .error-message")
-    errorMessage.classList
+    commandPalette = workspaceElement.querySelector(".command-palette")
+    commandPalette.classList
       .remove("face-1", "face-2", "face-3", "face-4", "face-5", "face-6", "face-7", "face-8", "face-9", "face-10", "face-11", "face-12", "face-13", "face-14", "face-15", "face-16")
-    errorMessage.classList
+    commandPalette.classList
       .add("face-#{Math.floor(Math.random() * (16 - 1) + 1)}")

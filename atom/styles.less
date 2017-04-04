@@ -1,34 +1,65 @@
-atom-text-editor::shadow .line-number {
+atom-text-editor.editor .line-number {
   font-family: PT Mono;
   font-weight: 600;
 }
 
+.title-bar {
+  font-weight: 600;
+  color: rgba(255,255,255,.6);
+}
+
 .tree-view {
   font-size: 13px;
+  font-weight: 600;
+}
+
+.tree-view-scroller > ol > li > ol > li {
+  padding-left: 10px !important;
 }
 
 .tree-view-resizer {
   position: relative;
+  width: 100% !important;
+  min-width: 0;
+  transition: opacity 100ms linear 100ms, max-width 200ms ease-in 100ms;
+
+  &:hover {
+    max-width: 300px !important;
+  }
+
+  &:not(:hover) {
+    opacity: 0.5;
+    max-width: 130px !important;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 8px;
+    background-image: linear-gradient(
+      0deg,
+      transparent,
+      rgba(0, 0, 0, 0.1)
+    );
+    z-index: 1;
+  }
+
   &:after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
-    width: 10px;
+    width: 8px;
     background-image: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 0, 0, 0.2)
+      rgba(0, 0, 0, 0.1)
     );
     z-index: 1;
-  }
-}
-
-.tree-view {
-  transition: opacity 150ms;
-  &:not(:hover) {
-    opacity: 0.2;
   }
 }
 
@@ -55,19 +86,17 @@ atom-text-editor::shadow .line-number {
   // Make modal text bigger
   font-size: 13px;
 
-  // Make modal input bigger
-  .editor.mini {
-    padding-top: 3px;
-    padding-bottom: 3px;
-  }
-
   // Fancy command palette error message
-  .command-palette .error-message {
-    text-align: center;
-    font-size: 1.2em;
-    margin: 20px 0;
+  .command-palette {
 
-    &::after {
+    .editor.mini + span {
+      display: block;
+      text-align: center;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    .editor.mini + span::after {
       content: "(>_<)";
       display: block;
       font-size: 5em;
@@ -77,67 +106,67 @@ atom-text-editor::shadow .line-number {
     }
 
     // Random emotes
-    &.face-1::after {
+    &.face-1 .editor.mini + span::after {
       content: "(>_<)";
     }
 
-    &.face-2::after {
+    &.face-2 .editor.mini + span::after {
       content: "\\(^Д^)/";
     }
 
-    &.face-3::after {
+    &.face-3 .editor.mini + span::after {
       content: "(≥o≤)";
     }
 
-    &.face-4::after {
+    &.face-4 .editor.mini + span::after {
       content: "(^_^)b";
     }
 
-    &.face-5::after {
+    &.face-5 .editor.mini + span::after {
       content: "(·_·)";
     }
 
-    &.face-6::after {
+    &.face-6 .editor.mini + span::after {
       content: "(;-;)";
     }
 
-    &.face-7::after {
+    &.face-7 .editor.mini + span::after {
       content: "(='X'=)";
     }
 
-    &.face-8::after {
+    &.face-8 .editor.mini + span::after {
       content: "\\(o_o)/";
     }
 
-    &.face-9::after {
+    &.face-9 .editor.mini + span::after {
       content: "(·.·)";
     }
 
-    &.face-10::after {
+    &.face-10 .editor.mini + span::after {
       content: "(^-^*)";
     }
 
-    &.face-11::after {
+    &.face-11 .editor.mini + span::after {
       content: "(o^^)o";
     }
 
-    &.face-12::after {
+    &.face-12 .editor.mini + span::after {
       content: "(˚Δ˚)b";
     }
 
-    &.face-13::after {
+    &.face-13 .editor.mini + span::after {
       content: "(ง'-')ง";
     }
 
-    &.face-14::after {
+    &.face-14 .editor.mini + span::after {
       content: "(¬_¬)";
     }
 
-    &.face-15::after {
+    &.face-15 .editor.mini + span::after {
       content: "(◕ᗝ◕)";
     }
 
-    &.face-16::after {
+    &.face-16 .editor.mini + span::after {
       content: "(¬ ʖ̯¬)";
     }
   }
