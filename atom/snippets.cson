@@ -31,3 +31,7 @@
 
       $2
       '''
+'.source.js':
+  'Import':
+    'prefix': 'import'
+    'body': "import $1 from '${2:$1}'"
