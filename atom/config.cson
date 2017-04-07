@@ -55,6 +55,7 @@
     useGlobalEslint: true
   "linter-js-standard":
     checkStyleDevDependencies: true
+  "linter-ui-default": {}
   minimap:
     plugins:
       "minimap-autohide": true

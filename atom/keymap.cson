@@ -32,7 +32,8 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 'atom-text-editor':
-  'cmd-shift-l': 'narrow:lines'
+  'ctrl-space': 'jumpy:toggle'
+  'ctrl-cmd-n s': 'narrow:scan'
   'cmd-k n left': 'pane:split-left-and-move-active-item'
   'cmd-k n right': 'pane:split-right-and-move-active-item'
   'cmd-k n up': 'pane:split-up-and-move-active-item'
@@ -45,6 +46,5 @@
   'cmd-k right': 'window:move-active-item-to-pane-on-right'
   'cmd-k down': 'window:move-active-item-to-pane-below'
   'cmd-k up': 'window:move-active-item-to-pane-above'
-  'shift-cmd-k': 'hey-pane:toggle-focus-of-active-pane'
   'cmd-ctrl-,': 'pane:decrease-size'
   'cmd-ctrl-.': 'pane:increase-size'
