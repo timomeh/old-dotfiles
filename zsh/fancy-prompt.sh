@@ -110,5 +110,5 @@ local git_count='$(git_up_down)'
 
 
 PROMPT="
-$bold$dark_gray$current_dir$reset$bold$dim$dark_gray$git_info$reset$git_status$git_count
+$bold$dark_gray$current_dir$reset$bold$dim$light_gray$git_info$reset$git_status$git_count
 $status_indicator "
